@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora los proyectos de diseño gráfico de NombreDelDiseñador, incluyendo branding, web, ilustración y más.">
+    <title>Portafolio - Proyectos de NombreDelDiseñador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header id="main-header">
+        <nav id="main-nav" class="container">
+            <div class="logo">
+                <a href="index.html">LogoDiseñador</a>
+            </div>
+            <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-mi.html">Sobre mí</a></li>
+                <li><a href="portafolio.html" class="active">Portafolio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portafolio-galeria" class="container page-section fade-in-section">
+            <h2>Mis Proyectos Destacados</h2>
+            <p class="subtitulo-seccion">Una selección de mis trabajos en diversas áreas del diseño gráfico. Haz clic en cualquier proyecto para ver más detalles.</p>
+
+            <div class="filtros-portafolio">
+                <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="branding">Branding</button>
+                <button class="filtro-btn" data-filtro="web">Diseño Web</button>
+                <button class="filtro-btn" data-filtro="ilustracion">Ilustración</button>
+            </div>
+
+            <div class="galeria">
+                <div class="proyecto-item" data-categoria="branding">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Branding+1" alt="Proyecto de Branding para Empresa Alfa" data-descripcion="Desarrollo completo de identidad de marca para Empresa Alfa, incluyendo logotipo, paleta de colores, tipografía y manual de marca.">
+                    <div class="overlay-proyecto">
+                        <h3>Branding Empresa Alfa</h3>
+                        <p>Identidad Visual</p>
+                    </div>
+                </div>
+                <div class="proyecto-item" data-categoria="web">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Web+1" alt="Diseño Web para Tienda Beta" data-descripcion="Diseño UI/UX y desarrollo front-end para la tienda online de moda Tienda Beta, optimizado para móviles.">
+                    <div class="overlay-proyecto">
+                        <h3>Web Tienda Beta</h3>
+                        <p>Diseño UI/UX</p>
+                    </div>
+                </div>
+                <div class="proyecto-item" data-categoria="ilustracion">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Ilustracion+1" alt="Ilustraciones para Revista Gamma" data-descripcion="Serie de ilustraciones editoriales para la Revista Gamma sobre temas de actualidad y cultura.">
+                    <div class="overlay-proyecto">
+                        <h3>Ilustraciones Revista Gamma</h3>
+                        <p>Ilustración Editorial</p>
+                    </div>
+                </div>
+                <div class="proyecto-item" data-categoria="branding">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Branding+2" alt="Rediseño de Logo para Consultora Delta" data-descripcion="Modernización del logotipo y papelería corporativa para Consultora Delta, buscando un enfoque más fresco y actual.">
+                    <div class="overlay-proyecto">
+                        <h3>Logo Consultora Delta</h3>
+                        <p>Rediseño de Marca</p>
+                    </div>
+                </div>
+                <div class="proyecto-item" data-categoria="web">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Web+2" alt="Landing Page para Startup Epsilon" data-descripcion="Diseño y maquetación de una landing page de alta conversión para el lanzamiento de la Startup Epsilon.">
+                    <div class="overlay-proyecto">
+                        <h3>Landing Page Epsilon</h3>
+                        <p>Diseño Web</p>
+                    </div>
+                </div>
+                <div class="proyecto-item" data-categoria="editorial">
+                    <img src="https://via.placeholder.com/450x350.png?text=Proyecto+Editorial+1" alt="Diseño de Libro Infantil Zeta" data-descripcion="Ilustración y maquetación completa para un libro infantil educativo llamado 'Aventuras en el Bosque Mágico'.">
+                    <div class="overlay-proyecto">
+                        <h3>Libro Infantil Zeta</h3>
+                        <p>Diseño Editorial e Ilustración</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="modal-galeria" class="modal">
+            <span class="cerrar-modal">&times;</span>
+            <img class="modal-contenido" id="imagen-modal" alt="Imagen ampliada del proyecto">
+            <div id="descripcion-modal" class="descripcion-modal-texto"></div>
+        </div>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; NombreDelDiseñador <span id="current-year"></span>. Todos los derechos reservados.</p>
+            <div class="redes-sociales-footer">
+                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

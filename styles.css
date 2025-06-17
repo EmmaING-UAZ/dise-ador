@@ -1,0 +1,850 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables de Color y Configuraciones Generales */
+:root {
+    --color-primario: #007bff; /* Azul llamativo */
+    /* --color-primario-alt: #E94560; */ /* Rojo/Rosa llamativo alternativo */
+    --color-secundario: #343a40; /* Gris oscuro para texto y elementos */
+    --color-terciario: #6c757d; /* Gris medio para subtextos o bordes */
+    --color-fondo: #ffffff; /* Blanco */
+    --color-fondo-seccion-clara: #f8f9fa; /* Gris muy claro para fondos de sección */
+    --color-texto-principal: #212529; /* Negro suave */
+    --color-texto-secundario: #495057;
+    --color-blanco: #ffffff;
+    --color-negro: #000000;
+    --color-borde: #dee2e6;
+
+    --fuente-principal: 'Poppins', sans-serif;
+    --transicion-suave: all 0.3s ease-in-out;
+    --sombra-caja-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --sombra-caja-elevada: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --padding-seccion-grande: 80px 0;
+    --padding-seccion-media: 60px 0;
+    --border-radius-general: 8px;
+}
+
+/* Reset básico y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto-principal);
+    background-color: var(--color-fondo);
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevenir scroll horizontal accidental */
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primario);
+    transition: var(--transicion-suave);
+}
+
+a:hover {
+    opacity: 0.85;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Clases de utilidad */
+.text-center {
+    text-align: center;
+}
+
+.padding-global {
+    padding: var(--padding-seccion-media) 20px;
+}
+
+.page-section {
+    padding: var(--padding-seccion-grande) 0;
+}
+
+.page-section:nth-child(odd) {
+   /* background-color: var(--color-fondo-seccion-clara); Alternar fondos si se desea */
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: var(--color-texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem); /* Responsive font size */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    color: var(--color-primario);
+}
+
+/* Botones */
+.btn-primario, .btn-secundario {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: var(--border-radius-general);
+    font-weight: 500; /* Un poco más ligero */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: var(--transicion-suave);
+    text-align: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secundario {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+}
+
+.btn-secundario:hover {
+    background-color: transparent;
+    color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(52, 58, 64, 0.3);
+}
+
+/* Header y Navbar */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out, padding 0.4s ease-out;
+    padding: 20px 0;
+    background-color: transparent; /* Por defecto transparente */
+}
+
+#main-header.scrolled {
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-caja-suave);
+    padding: 10px 0;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-nav .logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primario); /* Color del logo siempre primario o blanco */
+    letter-spacing: -1px;
+}
+#main-header:not(.scrolled) #main-nav .logo a {
+    color: var(--color-blanco); /* Logo blanco sobre hero */
+}
+#main-header.scrolled #main-nav .logo a {
+    color: var(--color-primario);
+}
+
+
+#main-nav ul {
+    display: flex;
+}
+
+#main-nav ul li {
+    margin-left: 30px;
+}
+
+#main-nav ul li a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    color: var(--color-texto-principal); /* Color por defecto para nav scrolleado */
+}
+
+#main-header:not(.scrolled) #main-nav ul li a {
+    color: var(--color-blanco); /* Enlaces blancos sobre hero */
+}
+#main-header:not(.scrolled) #main-nav ul li a:hover,
+#main-header:not(.scrolled) #main-nav ul li a.active {
+    color: var(--color-primario); /* Hover/active color primario sobre hero */
+    opacity: 1;
+}
+
+#main-header.scrolled #main-nav ul li a {
+    color: var(--color-texto-principal);
+}
+#main-header.scrolled #main-nav ul li a:hover,
+#main-header.scrolled #main-nav ul li a.active {
+    color: var(--color-primario);
+}
+
+/* Efecto subrayado para links del nav */
+#main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+
+#main-nav ul li a:hover::after,
+#main-nav ul li a.active::after {
+    width: 100%;
+}
+
+/* --- INDEX.HTML (Hero Inicio) --- */
+#hero-inicio {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+    /* Comentario: Reemplazar con una imagen adecuada. Usar una imagen oscura o aplicar un overlay para contraste del texto */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0 20px; /* Padding para el contenido interno */
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto sobre la imagen de fondo */
+#hero-inicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajustar opacidad según la imagen */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: var(--color-blanco);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* --- SOBRE-MI.HTML --- */
+#sobre-mi-contenido {
+    /* Estilos generales ya aplicados por .page-section y .container */
+}
+
+.sobre-mi-flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Para que en móvil se ponga uno debajo del otro */
+    gap: 40px; /* Espacio entre texto e imagen */
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sobre-mi-texto {
+    flex: 2; /* Que el texto ocupe más espacio */
+    min-width: 300px; /* Ancho mínimo para el texto */
+}
+
+.sobre-mi-texto h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.sobre-mi-imagen {
+    flex: 1; /* Que la imagen ocupe menos */
+    min-width: 280px; /* Ancho mínimo para la imagen */
+}
+
+.sobre-mi-imagen img {
+    border-radius: var(--border-radius-general);
+    box-shadow: var(--sombra-caja-elevada);
+    width: 100%;
+}
+
+.habilidades-herramientas h3 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.habilidades-herramientas ul {
+    columns: 2;
+    column-gap: 40px;
+    list-style-position: inside;
+    padding-left: 0; /* Quitar padding si se usa list-style-position: inside */
+    margin-bottom: 30px;
+}
+
+.habilidades-herramientas ul li {
+    margin-bottom: 10px;
+    list-style-type: "\2713\0020"; /* Checkmark + espacio */
+    color: var(--color-texto-secundario);
+}
+
+.herramientas-list {
+    text-align: center;
+    line-height: 2;
+}
+
+.herramientas-list span {
+    font-weight: 500;
+    color: var(--color-primario);
+    background-color: #e9f2ff; /* Fondo sutil para destacar */
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin: 0 5px 5px 0;
+    display: inline-block;
+}
+
+/* --- PORTAFOLIO.HTML --- */
+.filtros-portafolio {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filtro-btn {
+    background: none;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 20px; /* Botones más redondeados */
+    cursor: pointer;
+    transition: var(--transicion-suave);
+}
+
+.filtro-btn:hover,
+.filtro-btn.active {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.proyecto-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-general);
+    box-shadow: var(--sombra-caja-suave);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-caja-elevada);
+}
+
+.proyecto-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para consistencia, ajustar según imágenes */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.proyecto-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay-proyecto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: var(--color-blanco);
+    padding: 30px 20px 15px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+    opacity: 0;
+}
+
+.proyecto-item:hover .overlay-proyecto {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.overlay-proyecto h3 {
+    color: var(--color-blanco);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.overlay-proyecto p {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* Modal de Galería */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Scroll si el contenido es muy alto */
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.visible {
+    display: flex; /* Mostrar con flex para centrar */
+}
+
+.modal-contenido {
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: var(--border-radius-general);
+    animation: zoomInModal 0.4s ease-out;
+    margin: auto; /* Necesario para centrar si no se usa flex en .modal */
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #bbb;
+    font-size: 45px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+#descripcion-modal {
+    text-align: center;
+    color: var(--color-fondo-seccion-clara);
+    padding: 20px;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto 0;
+    animation: fadeInDescription 0.5s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes zoomInModal {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInDescription {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- CONTACTO.HTML --- */
+.contacto-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.formulario-columna {
+    flex: 2;
+    min-width: 300px;
+}
+
+.info-columna {
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--color-fondo-seccion-clara);
+    padding: 30px;
+    border-radius: var(--border-radius-general);
+}
+
+.info-columna h3 {
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+}
+
+.info-columna p {
+    margin-bottom: 10px;
+    color: var(--color-texto-secundario);
+}
+.info-columna p strong {
+    color: var(--color-texto-principal);
+}
+
+.form-grupo {
+    margin-bottom: 20px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-secundario);
+}
+
+.form-grupo input[type="text"],
+.form-grupo input[type="email"],
+.form-grupo textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--border-radius-general);
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-grupo input[type="text"]:focus,
+.form-grupo input[type="email"]:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.form-grupo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#formulario-contacto button[type="submit"] {
+    width: auto; /* No ocupa todo el ancho */
+    padding: 12px 35px;
+}
+
+.redes-sociales-iconos {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px; /* Espacio entre iconos */
+}
+
+.red-social-enlace {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.red-social-enlace:hover {
+    transform: scale(1.15);
+    opacity: 1; /* Mantener opacidad al hacer hover */
+}
+
+.icono-social {
+    width: 32px; /* Ajustar tamaño de iconos SVG */
+    height: 32px;
+    /* El color se puede controlar con 'fill' en el SVG o aquí si el SVG lo permite */
+    /* fill: var(--color-secundario); */
+}
+
+/* Footer */
+#main-footer {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo-seccion-clara);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: auto; /* Empujar al fondo si el contenido es corto */
+}
+
+#main-footer p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.redes-sociales-footer a {
+    margin: 0 10px;
+    color: var(--color-fondo-seccion-clara);
+    font-size: 0.9rem; /* Si son texto, o ajustar tamaño de iconos si se usan aquí */
+}
+
+.redes-sociales-footer a:hover {
+    color: var(--color-primario);
+}
+
+/* Animaciones de Carga (Generales) */
+.fade-in-on-load {
+    opacity: 0;
+    animation: fadeInLoad 0.8s ease-out forwards;
+}
+
+.fade-in-on-load.delay-1 { animation-delay: 0.3s; }
+.fade-in-on-load.delay-2 { animation-delay: 0.6s; }
+.fade-in-on-load.delay-3 { animation-delay: 0.9s; }
+
+@keyframes fadeInLoad {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animaciones al hacer scroll (Fade-in para secciones) */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- DISEÑO RESPONSIVE --- */
+
+/* Ajustes para tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    #main-nav ul li {
+        margin-left: 20px;
+    }
+    .habilidades-herramientas ul {
+        columns: 1;
+    }
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Estilos para el botón hamburguesa y sus líneas */
+.menu-toggle {
+    display: none; /* Oculto por defecto, se muestra en media query */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Asegurar que esté sobre otros elementos del nav */
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primario); /* Color de las líneas */
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#main-header:not(.scrolled) .menu-toggle .hamburger-icon {
+    background-color: var(--color-blanco); /* Líneas blancas sobre hero */
+}
+
+/* Estilos para la X cuando el menú está abierto (se activa con JS) */
+.menu-toggle.active .hamburger-icon:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .hamburger-icon:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mostrar el botón hamburguesa en móviles (ya definido en media query de styles.css) */
+@media (max-width: 768px) {
+    #main-nav .menu-toggle {
+        display: block; /* Ya estaba, pero para confirmar */
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    body {
+        /* padding-top: 0; /* Quitar si el menú se vuelve hamburguesa */
+    }
+    #main-header {
+        padding: 15px 0;
+        background-color: var(--color-blanco); /* Navbar siempre visible en móvil */
+        box-shadow: var(--sombra-caja-suave);
+    }
+    #main-header:not(.scrolled) #main-nav .logo a,
+    #main-header:not(.scrolled) #main-nav ul li a {
+        color: var(--color-texto-principal); /* Texto oscuro para navbar en móvil */
+    }
+    #main-header:not(.scrolled) #main-nav ul li a:hover,
+    #main-header:not(.scrolled) #main-nav ul li a.active {
+        color: var(--color-primario);
+    }
+    #main-header.scrolled {
+        padding: 10px 0;
+    }
+
+    /* --- Menú Hamburguesa (Ejemplo básico) --- */
+    /* Se necesitaría JS para el toggle */
+    #main-nav {
+        position: relative; /* Para el botón hamburguesa */
+    }
+    #main-nav .menu-toggle {
+        display: block; /* Mostrar botón hamburguesa */
+        font-size: 1.8rem;
+        color: var(--color-primario);
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute; /* O ajustar con flex */
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    #main-nav ul {
+        display: none; /* Ocultar menú por defecto */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-blanco);
+        position: absolute;
+        top: 100%; /* Debajo del header */
+        left: 0;
+        box-shadow: var(--sombra-caja-suave);
+        padding: 10px 0;
+    }
+    #main-nav ul.menu-abierto {
+        display: flex; /* Mostrar menú con JS */
+    }
+    #main-nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #main-nav ul li a {
+        display: block;
+        padding: 12px 20px;
+        color: var(--color-texto-principal); /* Asegurar color en menú desplegado */
+        border-bottom: 1px solid var(--color-borde);
+    }
+    #main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    #main-nav ul li a.active,
+    #main-nav ul li a:hover {
+        color: var(--color-primario);
+        background-color: var(--color-fondo-seccion-clara);
+    }
+    #main-nav ul li a::after { /* Ocultar subrayado en móvil */
+        display: none;
+    }
+    /* ---- Fin Menú Hamburguesa ---- */
+
+    #hero-inicio {
+        min-height: 80vh; /* Reducir un poco en móvil */
+    }
+    .hero-content h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+    .hero-content p { font-size: clamp(1rem, 4vw, 1.2rem); }
+
+    .sobre-mi-flex-container,
+    .contacto-flex-container {
+        gap: 30px;
+    }
+    .formulario-columna, .info-columna {
+        flex-basis: 100%; /* Una columna en móvil */
+    }
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .proyecto-item img {
+        height: 220px;
+    }
+    .modal-contenido {
+        max-width: 95%;
+        max-height: 75vh;
+    }
+    .cerrar-modal { font-size: 35px; top: 10px; right: 20px; }
+}
+
+@media (max-width: 480px) {
+    .filtros-portafolio {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .filtro-btn {
+        width: 100%;
+        margin: 0;
+    }
+    .redes-sociales-iconos {
+        justify-content: center; /* Centrar iconos en móvil */
+    }
+    .icono-social {
+        width: 28px;
+        height: 28px;
+    }
+}
