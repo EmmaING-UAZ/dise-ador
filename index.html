@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de diseñador gráfico con experiencia en branding, diseño web y contenido visual.">
+    <title>Portafolio de Diseño Gráfico - Nombre del Diseñador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Comentario SEO: Considerar añadir Google Fonts directamente aquí si no se usa @import en CSS -->
+</head>
+<body>
+    <header id="main-header">
+        <nav id="main-nav">
+            <div class="logo">
+                <a href="#inicio">LogoDiseñador</a> <!-- Comentario SEO: Usar un logo con texto o imagen con alt descriptivo -->
+            </div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="inicio-texto">
+                <h1>Nombre del Diseñador</h1>
+                <p>Diseñador Gráfico especializado en crear experiencias visuales impactantes. Branding, diseño web y contenido creativo.</p>
+                <a href="#portafolio" class="btn-primario">Ver Proyectos</a>
+            </div>
+            <div class="inicio-imagen">
+                <!-- Comentario SEO: Añadir alt descriptivo a esta imagen -->
+                <img src="https://via.placeholder.com/600x800.png?text=Imagen+Representativa+Diseño" alt="Imagen representativa de diseño gráfico moderno">
+            </div>
+        </section>
+
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Soy un apasionado diseñador gráfico con 5 años de experiencia ayudando a marcas a conectar con su audiencia a través de la creatividad y la estrategia visual. Mi enfoque se centra en entender tus necesidades para ofrecerte soluciones de diseño que no solo se vean bien, sino que también cumplan tus objetivos.</p>
+            <h3>Experiencia</h3>
+            <ul>
+                <li>Diseñador Gráfico Senior en Creativos Unidos (2021 - Presente)</li>
+                <li>Diseñador Gráfico Junior en Agencia Pixel (2019 - 2021)</li>
+                <!-- Comentario SEO: Detallar más logros o responsabilidades específicas si es relevante -->
+            </ul>
+            <h3>Habilidades</h3>
+            <ul>
+                <li>Branding y Desarrollo de Identidad Visual</li>
+                <li>Diseño Web y de Interfaces (UI/UX)</li>
+                <li>Diseño Editorial</li>
+                <li>Ilustración Digital</li>
+                <li>Marketing de Contenidos</li>
+            </ul>
+            <h3>Herramientas</h3>
+            <p>
+                Manejo avanzado de <span>Adobe Photoshop</span>, <span>Adobe Illustrator</span>, <span>Adobe InDesign</span>, <span>Figma</span>, <span>Sketch</span>, y otras herramientas de diseño y prototipado.
+            </p>
+        </section>
+
+        <section id="portafolio">
+            <h2>Portafolio</h2>
+            <div class="galeria">
+                <!-- Comentario SEO: Añadir alt descriptivo y único a cada imagen del portafolio -->
+                <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Branding" alt="Proyecto de Branding para Marca X" data-descripcion="Diseño de identidad visual completa para la Marca X, incluyendo logo, paleta de colores y aplicaciones gráficas.">
+                </div>
+                <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Web" alt="Diseño web para E-commerce Y" data-descripcion="Diseño de interfaz de usuario (UI) y experiencia de usuario (UX) para una tienda online de moda.">
+                </div>
+                <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Ilustracion" alt="Ilustraciones para Campaña Z" data-descripcion="Serie de ilustraciones digitales creadas para una campaña de concienciación social.">
+                </div>
+                <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Editorial" alt="Diseño de Revista Cultural" data-descripcion="Maquetación y diseño editorial para una revista cultural independiente.">
+                </div>
+                 <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Packaging" alt="Diseño de Packaging para Producto A" data-descripcion="Creación de diseño de empaque atractivo y funcional para el Producto A.">
+                </div>
+                <div class="proyecto-item">
+                    <img src="https://via.placeholder.com/400x300.png?text=Proyecto+Redes" alt="Contenido Visual para Redes Sociales" data-descripcion="Desarrollo de plantillas y contenido visual para estrategias de marketing en redes sociales.">
+                </div>
+            </div>
+        </section>
+        <!-- Modal para la galería -->
+        <div id="modal-galeria" class="modal">
+            <span class="cerrar-modal">&times;</span>
+            <img class="modal-contenido" id="imagen-modal" alt="Imagen ampliada del proyecto"> <!-- Comentario SEO: El alt se podría actualizar con JS -->
+            <div id="descripcion-modal" class="descripcion-modal-texto"></div>
+        </div>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="formulario-contacto">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-secundario">Enviar Mensaje</button>
+            </form>
+            <div class="redes-sociales">
+                <!-- Comentario SEO: Asegurarse que los enlaces abran en nueva pestaña y tengan 'noopener noreferrer' por seguridad y SEO -->
+                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; Nombre del Diseñador <span id="current-year"></span>. Todos los derechos reservados.</p>
+        <div class="redes-sociales-footer">
+            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+        <!-- Comentario SEO: Considerar añadir un sitemap o enlaces a políticas de privacidad si aplica -->
+        <!-- Comentario SEO: Conectar a Google Analytics / Search Console -->
+        <!-- Comentario SEO: Agregar datos estructurados (Schema.org) para mejorar la representación en buscadores -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

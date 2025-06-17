@@ -1,0 +1,618 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Variables de Color y Configuraciones Generales */
+:root {
+    --color-primario: #007bff; /* Azul llamativo */
+    /* --color-primario: #dc3545; */ /* Alternativa: Rojo llamativo */
+    --color-secundario: #343a40; /* Gris oscuro */
+    --color-texto: #212529; /* Negro suave */
+    --color-fondo: #ffffff; /* Blanco */
+    --color-gris-claro: #f8f9fa;
+    --fuente-principal: 'Poppins', sans-serif;
+    --transicion-suave: all 0.3s ease-in-out;
+}
+
+/* Reset básico y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base para REM units */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+    padding-top: 70px; /* Espacio para el navbar fijo */
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-secundario);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-primario);
+}
+
+/* Botones */
+.btn-primario, .btn-secundario {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transicion-suave);
+    text-align: center;
+}
+
+.btn-primario {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    border: 2px solid var(--color-primario);
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--color-primario);
+}
+
+.btn-secundario {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+    border: 2px solid var(--color-secundario);
+}
+
+.btn-secundario:hover {
+    background-color: transparent;
+    color: var(--color-secundario);
+}
+
+/* Header y Navbar */
+#main-header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+    padding: 10px 0; /* Padding reducido */
+}
+
+#main-header.scrolled {
+    background-color: var(--color-fondo);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#main-nav {
+    max-width: 1200px; /* Ancho máximo para el contenido del nav */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#main-nav .logo a {
+    font-size: 1.8rem; /* Tamaño del logo */
+    font-weight: 700;
+    color: var(--color-primario);
+    transition: var(--transicion-suave);
+}
+
+#main-header.scrolled .logo a {
+    color: var(--color-primario);
+}
+
+#main-header:not(.scrolled) .logo a {
+    color: var(--color-fondo); /* Logo blanco cuando el fondo es transparente */
+}
+
+#main-nav ul {
+    display: flex;
+}
+
+#main-nav ul li {
+    margin-left: 25px; /* Espaciado entre ítems del menú */
+}
+
+#main-nav ul li a {
+    font-size: 1rem; /* Tamaño del texto del menú */
+    font-weight: 600;
+    padding: 5px 0;
+    transition: var(--transicion-suave);
+    position: relative;
+}
+
+#main-header.scrolled #main-nav ul li a {
+    color: var(--color-texto);
+}
+#main-header.scrolled #main-nav ul li a:hover {
+    color: var(--color-primario);
+}
+
+#main-header:not(.scrolled) #main-nav ul li a {
+    color: var(--color-fondo); /* Texto del menú blanco */
+}
+#main-header:not(.scrolled) #main-nav ul li a:hover {
+    color: var(--color-primario); /* Cambio de color al pasar el mouse */
+    opacity: 1;
+}
+
+/* Efecto subrayado para links del nav */
+#main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primario);
+    transition: width 0.3s ease;
+}
+
+#main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Sección Inicio */
+#inicio {
+    min-height: 100vh; /* Altura completa de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-secundario); /* Fondo oscuro para contraste */
+    color: var(--color-fondo);
+    padding: 70px 5% 0; /* Ajustar padding, 5% a los lados */
+}
+
+.inicio-texto {
+    flex-basis: 50%;
+    padding-right: 30px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.inicio-texto h1 {
+    font-size: 3.5rem; /* Tamaño grande para el nombre */
+    margin-bottom: 15px;
+    color: var(--color-primario);
+}
+
+.inicio-texto p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.inicio-imagen {
+    flex-basis: 45%;
+    animation: fadeIn 1.5s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-imagen img {
+    max-width: 100%;
+    max-height: 80vh; /* Limitar altura de la imagen */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Sección Sobre Mí */
+#sobre-mi {
+    background-color: var(--color-gris-claro);
+}
+
+#sobre-mi h3 {
+    margin-top: 30px;
+}
+
+#sobre-mi ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+#sobre-mi ul li {
+    list-style: disc;
+    margin-bottom: 8px;
+}
+
+#sobre-mi span {
+    font-weight: 600;
+    color: var(--color-primario);
+    background-color: #e9ecef; /* Un fondo sutil para destacar */
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Sección Portafolio */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Espacio entre imágenes */
+}
+
+.proyecto-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.proyecto-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+    transition: transform 0.4s ease;
+}
+
+.proyecto-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal de Galería */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85); /* Fondo oscuro semitransparente */
+    align-items: center; /* Centrado vertical con flex */
+    justify-content: center; /* Centrado horizontal con flex */
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 75vh; /* Altura máxima de la imagen */
+    border-radius: 5px;
+    animation: zoomIn 0.3s ease;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    color: #fff;
+    font-size: 45px; /* Tamaño del ícono de cerrar */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+#descripcion-modal {
+    text-align: center;
+    color: var(--color-gris-claro);
+    padding: 20px;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 15px auto 0;
+    animation: fadeIn 0.5s ease 0.2s; /* Fade in después de la imagen */
+    animation-fill-mode: backwards; /* Mantiene estado inicial antes de animar */
+}
+
+/* Sección Contacto */
+#contacto {
+    background-color: var(--color-gris-claro);
+}
+
+#formulario-contacto {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    padding: 30px;
+    background-color: var(--color-fondo);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+#formulario-contacto div {
+    margin-bottom: 20px;
+}
+
+#formulario-contacto label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-secundario);
+}
+
+#formulario-contacto input[type="text"],
+#formulario-contacto input[type="email"],
+#formulario-contacto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+}
+
+#formulario-contacto input[type="text"]:focus,
+#formulario-contacto input[type="email"]:focus,
+#formulario-contacto textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+#formulario-contacto textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#formulario-contacto button[type="submit"] {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.redes-sociales {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.redes-sociales a {
+    margin: 0 15px;
+    font-size: 1.8rem; /* Tamaño de íconos (si fueran fuentes de íconos) o texto */
+    color: var(--color-secundario);
+    transition: var(--transicion-suave);
+}
+
+.redes-sociales a:hover {
+    color: var(--color-primario);
+}
+
+/* Footer */
+#main-footer {
+    background-color: var(--color-secundario);
+    color: var(--color-gris-claro);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+#main-footer p {
+    margin-bottom: 10px;
+}
+
+.redes-sociales-footer a {
+    margin: 0 10px;
+    color: var(--color-gris-claro);
+}
+
+.redes-sociales-footer a:hover {
+    color: var(--color-primario);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-80px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(80px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos para elementos que se animarán al hacer scroll (se activan con JS) */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Diseño Responsive */
+@media (max-width: 992px) {
+    .inicio-texto h1 {
+        font-size: 2.8rem;
+    }
+    .inicio-texto p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Ajustar para navbar más pequeño */
+    }
+    #main-nav {
+        flex-direction: column;
+        align-items: center; /* Centrar logo y menú en móvil */
+    }
+    #main-nav .logo {
+        margin-bottom: 10px; /* Espacio entre logo y menú */
+    }
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    #main-nav ul li {
+        margin: 10px 0; /* Espacio vertical entre ítems del menú */
+        text-align: center;
+    }
+     /* --- Menú Hamburguesa (Opcional, si se quiere colapsar) --- */
+    /* Por ahora, solo se apilan. Si se necesita hamburguesa, se añadiría más JS y CSS */
+
+    #inicio {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 5% 30px; /* Ajustar padding */
+        min-height: auto; /* Altura automática en móvil */
+    }
+    .inicio-texto {
+        padding-right: 0;
+        margin-bottom: 30px;
+        flex-basis: auto;
+    }
+    .inicio-texto h1 {
+        font-size: 2.5rem;
+    }
+    .inicio-imagen {
+        flex-basis: auto;
+        margin-top: 20px;
+    }
+    .inicio-imagen img {
+        max-height: 60vh;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    #formulario-contacto {
+        padding: 20px;
+    }
+
+    .modal-contenido {
+        max-width: 90%;
+    }
+    .cerrar-modal {
+        top: 15px;
+        right: 25px;
+        font-size: 35px;
+    }
+    #descripcion-modal {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 50px; /* Navbar aún más pequeño */
+    }
+    #main-header {
+        padding: 5px 0;
+    }
+    #main-nav .logo a {
+        font-size: 1.5rem;
+    }
+    #main-nav ul li a {
+        font-size: 0.9rem;
+    }
+    #main-nav ul li {
+        margin: 8px 0;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .inicio-texto h1 {
+        font-size: 2rem;
+    }
+    .inicio-texto p {
+        font-size: 1rem;
+    }
+    .btn-primario, .btn-secundario {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+        gap: 20px;
+    }
+    .proyecto-item img {
+       /* Ajustes si es necesario para el modo de una columna */
+    }
+
+    #formulario-contacto input[type="text"],
+    #formulario-contacto input[type="email"],
+    #formulario-contacto textarea {
+        padding: 10px;
+    }
+}
